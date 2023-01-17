@@ -24,16 +24,16 @@
       <img [src]="task.imagePath" alt="{{task.title}}" />
     </div>
 
+    <mat-card-content>
 
+      <p class="task-description">{{task.description}}</p>
+    </mat-card-content>
+
+  </div>
   <mat-chip  class="time-chip" color="accent" *ngIf="task.time != 'null'" >
     Complete by - {{task.time}}
   </mat-chip>
-  </div>
 
-  <mat-card-content>
-
-    <p class="task-description">{{task.description}}</p>
-  </mat-card-content>
 
     <mat-action-row *ngIf="userIsAuthenticated && task.creator === userId">
 

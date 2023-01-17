@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
-import { imageTypeValidator } from "./create/image-type.validator";
 import { Task } from "./task.model";
 
 @Injectable({providedIn: 'root'})

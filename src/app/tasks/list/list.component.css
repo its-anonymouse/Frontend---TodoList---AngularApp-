@@ -5,7 +5,9 @@ mat-expansion-panel{
 
     box-shadow: 1px 1px 10px gray;
 }
-
+.task-image, mat-card-content{
+  width: 50%;
+}
 .info-text{
     width: fit-content;
     padding: 1rem;
@@ -15,11 +17,13 @@ mat-expansion-panel{
 }
 
 .task-image{
-    width: 100%;
+  max-height: 90vh;
+  width: 50%;
+  object-fit: contain
 }
 .task-image img{
-    max-height: 60vh;
     max-width: 100%;
+    max-height: 85vh;
     box-shadow: 1px 1px 5px #000000;
 }
 .task-image img:hover{
@@ -29,15 +33,12 @@ mat-expansion-panel{
     border-radius: 3px;
 }
 
-.description{
-  width: 100%;
-  min-height: fit-content;
-}
+
 .task-description{
+  padding: 10px 15px;
   word-wrap: break-word;
-  width: 100%;
-    margin :10px 0 0 0;
-    height: fit-content;
+  width: 90%;
+  height: fit-content;
 
 }
 .hide{
@@ -46,8 +47,21 @@ mat-expansion-panel{
 
 .flex{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
+
+@media screen and (max-width:650px) {
+  .flex{
+    flex-direction: column;
+  }
+  .task-image, mat-card-content{
+    width: 100%;
+  }
+  .task-image img{
+    max-height: 70vh;
+  }
+}
+
 .time-chip{
   justify-self: flex-end;
 }

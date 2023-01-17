@@ -37,7 +37,7 @@ export class AuthService {
     }
 
     getUserId(){
-      return this.userId;
+      return localStorage.getItem('userId');
     }
 
     createUser(authData: AuthData){
@@ -68,10 +68,9 @@ export class AuthService {
           this.tokenTimer = setTimeout(() => {
             this.logout();
           }, expiresIn);
-
         }
-
       }
+
     }
     // Login ==============
     login(authData: AuthData){

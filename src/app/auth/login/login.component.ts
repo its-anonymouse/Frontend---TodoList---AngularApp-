@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { NotifierService } from 'src/app/notifier.service';
+import { TasksService } from 'src/app/tasks/tasks.service';
 import { AuthData } from '../auth-data.model';
 import { AuthService } from '../auth.service';
 
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit, OnDestroy{
   private authListenerSubs:Subscription;
 
   constructor( public authService: AuthService,
-    private notifierService:NotifierService
+    private notifierService:NotifierService,
+    public tasksService:TasksService
     ){
 
   }
@@ -28,6 +30,9 @@ export class LoginComponent implements OnInit, OnDestroy{
     .subscribe(isAuthenticated=>{
       this.isLoading=isAuthenticated;
     })
+
+    this.authService.getUserId();
+
   }
 
   onLogin(form:NgForm){
@@ -53,6 +58,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   this.authService.login(auth);
 
 
+  this.tasksService.getTasks();
 }
 
 
